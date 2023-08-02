@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <!-- Inherit web.assets_backend -->
-        <template id="assets_backend" name="st_odoo_statements Assets" inherit_id="web.assets_backend">
+        <template id="assets_backend" name="st_odoo_statements_asset" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
                 <!-- Include Plaid Link JavaScript -->
                 <script type="text/javascript" src="static/src/js/plaid_link.js"/>
