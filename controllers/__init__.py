@@ -1,1 +1,1 @@
-import plaid_controller
+from . import plaid_controller
