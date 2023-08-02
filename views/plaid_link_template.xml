@@ -5,7 +5,7 @@
         <record id="view_users_form_inherit" model="ir.ui.view">
             <field name="name">res.users.form.inherit</field>
             <field name="model">res.users</field>
-            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="inherit_id" ref="base.view_users_form"/>
             <field name="arch" type="xml">
                 <data>
                     <notebook position="inside">
@@ -18,7 +18,8 @@
                                 </tree>
                             </field>
                             <group>
-                                <button string="Link Bank Account" type="object" name="action_open_plaid_link"/>
+                                <!-- Call the PlaidLink JavaScript function on button click -->
+                                <button string="Link Bank Account" type="object" name="st_odoo_statements.plaid_link_action" widget="button"/>
                             </group>
                         </page>
                     </notebook>
