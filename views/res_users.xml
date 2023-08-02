@@ -1,6 +1,5 @@
 <odoo>
     <data>
-
         <!-- View Inheritance -->
         <record id="view_users_form_inherit" model="ir.ui.view">
             <field name="name">res.users.form.inherit</field>
@@ -26,31 +25,5 @@
                 </data>
             </field>
         </record>
-
-        <!-- Plaid Link Template -->
-        <template id="plaid_link_view">
-            <t t-call="web.layout">
-                <div>
-                    <!-- Your webpage content goes here -->
-
-                    <!-- Your custom HTML goes here -->
-                    <button id="link-button">Link Bank Account</button>
-
-                    <!-- Display linked account information -->
-                    <t t-if="user.plaid_accounts">
-                        <h2>Linked Accounts:</h2>
-                        <ul>
-                            <t t-foreach="user.plaid_accounts" t-as="account">
-                                <li>
-                                    <t t-esc="account.account_name"/> - <t t-esc="account.account_type"/> - <t t-esc="account.account_number"/>
-                                </li>
-                            </t>
-                        </ul>
-                    </t>
-
-                    <!-- Your webpage content continues... -->
-                </div>
-            </t>
-        </template>
     </data>
 </odoo>
