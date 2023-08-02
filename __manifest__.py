@@ -4,6 +4,11 @@
     'category': 'Accounting',
     'author': 'Jacob Sims',
     'depends': ['base', 'web'],
+    'assets': {
+        'web.assets_backend': [
+            'static/src/js/plaid_link.js',
+        ],
+    },
     'data': [
         'views/plaid_link_template.xml',
         'views/base_view.xml',
@@ -12,11 +17,6 @@
     'qweb': [
         'static/src/xml/plaid_link_template.xml',
     ],
-    'assets': {
-        'web.assets_backend': [
-            'static/src/js/plaid_link.js',
-        ],
-    },
     'installable': True,
     'application': True,
 }
