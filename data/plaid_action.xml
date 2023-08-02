@@ -1,7 +1,0 @@
-<record id="plaid_odoo_statements.action_open_plaid_link" model="ir.actions.act_window">
-    <field name="name">Open Plaid Link</field>
-    <field name="res_model">your.model.name</field>
-    <field name="view_mode">form</field>
-    <field name="view_id" ref="your_module_name.your_view_id"/>
-    <!-- Other required fields -->
-</record>

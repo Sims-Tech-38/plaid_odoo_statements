@@ -9,13 +9,13 @@
             'static/src/js/plaid_link.js',
         ],
     },
+    'qweb': [
+        'static/src/xml/plaid_link_template.xml',
+    ],
     'data': [
         'views/plaid_link_template.xml',
         'views/base_view.xml',
         # 'security/ir.model.access.csv',
-    ],
-    'qweb': [
-        'static/src/xml/plaid_link_template.xml',
     ],
     'installable': True,
     'application': True,
