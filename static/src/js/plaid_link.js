@@ -49,8 +49,6 @@ odoo.define('st_odoo_statements.plaid_link', function (require) {
         }
     });
 
-    core.action_registry.add('st_odoo_statements.plaid_link_action', PlaidLink, {
-        model: 'res.users',
-    });
+    core.action_registry.add('st_odoo_statements.plaid_link_action', PlaidLink);
     return PlaidLink;
 });
