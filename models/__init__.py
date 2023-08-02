@@ -1,2 +1,2 @@
-import plaid_account
-import res_users
+from . import res_users
+from . import plaid_account
