@@ -1,7 +1,7 @@
 {
     'name': 'ST Plaid Link Statment Importer',
     'version': '1.0',
-    'category': 'Custom',
+    'category': 'Accounting',
     'author': 'Jacob Sims',
     'depends': ['base', 'web'],
     'data': [
@@ -18,5 +18,5 @@
         ],
     },
     'installable': True,
-    'application': False,
+    'application': True,
 }
