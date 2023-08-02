@@ -1,0 +1,55 @@
+<odoo>
+    <template id="assets_backend" name="st_odoo_statements Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- Include Plaid Link JavaScript -->
+            <script type="text/javascript" src="/my_plaid_module/static/src/js/plaid_link.js"></script>
+        </xpath>
+    </template>
+
+    <record id="view_users_form_inherit" model="ir.ui.view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form" />
+        <field name="arch" type="xml">
+            <data>
+                <notebook position="inside">
+                    <page string="Plaid Link" name="plaid_link_page">
+                        <field name="plaid_accounts" widget="one2many_list">
+                            <tree>
+                                <field name="account_name"/>
+                                <field name="account_type"/>
+                                <field name="account_number"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <button string="Link Bank Account" type="object" name="%(action_open_plaid_link)d"/>
+                        </group>
+                    </page>
+                </notebook>
+            </data>
+        </field>
+    </record>
+
+    <template id="plaid_link_view">
+        <div>
+            <!-- Your webpage content goes here -->
+
+            <!-- Your custom HTML goes here -->
+            <button id="link-button">Link Bank Account</button>
+
+            <!-- Display linked account information -->
+            <t t-if="user.plaid_accounts">
+                <h2>Linked Accounts:</h2>
+                <ul>
+                    <t t-foreach="user.plaid_accounts" t-as="account">
+                        <li>
+                            <t t-esc="account.account_name"/> - <t t-esc="account.account_type"/> - <t t-esc="account.account_number"/>
+                        </li>
+                    </t>
+                </ul>
+            </t>
+
+            <!-- Your webpage content continues... -->
+        </div>
+    </template>
+</odoo>
