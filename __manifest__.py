@@ -15,7 +15,7 @@
     'data': [
         'data/action.xml',
         'views/res_users.xml',
-        'views/base_view.xml',
+        # 'views/base_view.xml',
         # 'security/ir.model.access.csv',
     ],
     'installable': True,
