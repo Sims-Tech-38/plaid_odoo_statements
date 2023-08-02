@@ -14,9 +14,10 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'plaid_odoo_statements/static/src/js/plaid_link.js',
+            'static/src/js/plaid_link.js',
         ],
     },
     'installable': True,
     'application': True,
 }
+
