@@ -1,5 +1,5 @@
 {
-    'name': 'ST Plaid Link Statment Importer',
+    'name': 'ST Plaid Link Statement Importer',
     'version': '1.0',
     'category': 'Accounting',
     'author': 'Jacob Sims',
@@ -14,7 +14,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            '/static/src/js/plaid_link.js',
+            'plaid_odoo_statements/static/src/js/plaid_link.js',
         ],
     },
     'installable': True,
