@@ -4,7 +4,7 @@
         <template id="assets_backend" name="st_odoo_statements Assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
                 <!-- Include Plaid Link JavaScript -->
-                <script type="text/javascript" src="/plaid_odoo_statements/static/src/js/plaid_link.js"/>
+                <script type="text/javascript" src="static/src/js/plaid_link.js"/>
             </xpath>
         </template>
 
