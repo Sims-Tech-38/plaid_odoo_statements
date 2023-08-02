@@ -1,4 +1,12 @@
-<record id="action_open_plaid_link" model="ir.actions.client">
-    <field name="name">Open Plaid Link</field>
-    <field name="tag">st_odoo_statements.plaid_link_action</field>
-</record>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="action_open_plaid_link" model="ir.actions.client">
+            <field name="name">Open Plaid Link</field>
+            <field name="tag">st_odoo_statements.plaid_link_action</field>
+        </record>
+    </data>
+    
+
+</odoo>
