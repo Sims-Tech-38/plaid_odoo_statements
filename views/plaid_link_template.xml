@@ -1,12 +1,5 @@
 <odoo>
     <data>
-        <!-- Inherit web.assets_backend -->
-        <template id="assets_backend" name="st_odoo_statements_asset" inherit_id="web.assets_backend">
-            <xpath expr="." position="inside">
-                <!-- Include Plaid Link JavaScript -->
-                <script type="text/javascript" src="static/src/js/plaid_link.js"/>
-            </xpath>
-        </template>
 
         <!-- View Inheritance -->
         <record id="view_users_form_inherit" model="ir.ui.view">
