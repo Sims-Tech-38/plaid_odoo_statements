@@ -14,6 +14,7 @@
                             <field name="plaid_client_id"/>
                             <field name="plaid_secret"/>
                             <field name="plaid_link_token" readonly="1"/>
+                            <field name="client_name"/>
                         </group>
                     </sheet>
                 </form>
