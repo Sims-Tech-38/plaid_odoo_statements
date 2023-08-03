@@ -3,8 +3,8 @@ from odoo.http import request
 
 class PlaidController(http.Controller):
 
-    @http.route('/plaid/token-exchange', type='json', auth='user')
-    def plaid_token_exchange(self, public_token, accounts, **kw):
+    @http.route('/plaid/link', type='json', auth='user')
+    def plaid_link(self, public_token, accounts, **kw):
         # Your token exchange and user settings update logic here
 
         # Assuming accounts is a list of dictionaries containing account information
@@ -20,8 +20,9 @@ class PlaidController(http.Controller):
                 'account_number': account.get('mask')
             })
 
-        # Update the user's res.users settings with the account information
-        user = request.env.user
-        user.write({'plaid_accounts': account_data})
+        # Create the wizard model and add account lines
+        WizardModel = request.env['your.wizard.model']  # Replace 'your.wizard.model' with the actual model name
+        wizard = WizardModel.create({})  # Create a new wizard record
+        wizard.account_lines = [(0, 0, line) for line in account_data]  # Add account lines
 
         return {'success': True}

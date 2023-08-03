@@ -16,10 +16,10 @@
                                     <field name="account_number"/>
                                 </tree>
                             </field>
-                            <group>
-                                <!-- Call the PlaidLink JavaScript function on button click -->
-                                <button string="Link Bank Account" type="object" name="action_open_plaid_link" widget="button"/>
-                            </group>
+                            <footer>
+                                <button string="Link Plaid Account" type="object" name="open_plaid_link_wizard"
+                                        class="btn-primary"/>
+                            </footer>
                         </page>
                     </notebook>
                 </data>
