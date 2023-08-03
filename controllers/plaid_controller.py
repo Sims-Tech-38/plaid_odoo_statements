@@ -26,7 +26,7 @@ class PlaidController(http.Controller):
 
         return {'success': True}
 
-    @http.route('/plaid/link/settings', auth='user')
+    @http.route('/plaid/link/settings', type='json', auth='user')
     def get_plaid_settings(self, **kw):
         # Retrieve Plaid settings from the server
         SettingsModel = request.env['plaid.link.settings']  # Replace 'plaid.link.settings' with the actual model name
