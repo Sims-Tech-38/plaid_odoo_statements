@@ -27,7 +27,7 @@
             <field name="view_id" ref="view_plaid_link_settings_form"/>
             <field name="target">new</field>
         </record>
-        <menuitem id="menu_plaid_settings" name="Plaid" parent="base.menu_settings"/>
+        <menuitem id="menu_plaid_settings" name="Plaid" parent="base.menu_administration"/>
 
         <menuitem id="menu_plaid_link_settings" name="Link Settings" parent="menu_plaid_settings" action="action_plaid_link_settings_form"/>
     </data>
