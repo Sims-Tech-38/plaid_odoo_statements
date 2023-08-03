@@ -9,8 +9,7 @@ class PlaidController(http.Controller):
 
         # Assuming accounts is a list of dictionaries containing account information
         if not accounts:
-            return {'error': 'No accounts linked'}https://chat.openai.com/c/cf96b6a9-8a83-4911-89e4-a52881494c0a
-
+            return {'error': 'No accounts linked'}
         # Extract relevant account information (customize this based on your needs)
         account_data = []
         for account in accounts:
