@@ -19,6 +19,19 @@ class PlaidLinkWizard(models.TransientModel):
             })
         user.write({'plaid_accounts': account_data})
 
+    def open_wizard(self):
+        # Add any necessary logic to perform when opening the wizard
+        # For example, you can set default values for fields, etc.
+        return {
+            'name': 'Plaid Link Wizard',
+            'type': 'ir.actions.act_window',
+            'res_model': 'plaid.link.wizard',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'target': 'new',
+            'context': self.env.context,
+        }
+
 class PlaidLinkWizardLine(models.TransientModel):
     _name = 'plaid.link.wizard.line'
     _description = 'Plaid Link Wizard Line'
