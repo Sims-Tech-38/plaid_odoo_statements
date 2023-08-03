@@ -9,7 +9,7 @@ class PlaidController(http.Controller):
 
         # Assuming accounts is a list of dictionaries containing account information
         if not accounts:
-            return {'error': 'No accounts linked'}
+            return {'error': 'No accounts linked'}https://chat.openai.com/c/cf96b6a9-8a83-4911-89e4-a52881494c0a
 
         # Extract relevant account information (customize this based on your needs)
         account_data = []
@@ -27,8 +27,8 @@ class PlaidController(http.Controller):
 
         return {'success': True}
 
-    @http.route('/plaid/link/settings', auth='user')
-    def get_plaid_settings(self):
+    @http.route('/plaid/link/settings', type='json', auth='user')
+    def get_plaid_settings(self, **kw):
         # Retrieve Plaid settings from the server
         SettingsModel = request.env['plaid.link.settings']  # Replace 'plaid.link.settings' with the actual model name
         settings = SettingsModel.sudo().search([], limit=1)  # Assuming there's only one record
