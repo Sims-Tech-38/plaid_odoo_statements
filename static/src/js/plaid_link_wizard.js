@@ -15,11 +15,12 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
         },
 
         _onLinkButtonClick: function () {
+            console.log('Plaid Link Button clicked!'); // Check if this message appears in the browser console
             var self = this;
             var linkHandler = Plaid.create({
                 clientName: 'ST Odoo Statements',
                 env: 'sandbox',  // Replace with 'development' or 'production' in the production environment
-                key: 'your_plaid_public_key',
+                key: 'f0770cca8117e86db1bdf7ce5392f1',
                 product: ['auth', 'transactions'], // or ['auth', 'identity', 'transactions'] for additional data
                 onSuccess: function (publicToken, metadata) {
                     self._onSuccess(publicToken, metadata);
