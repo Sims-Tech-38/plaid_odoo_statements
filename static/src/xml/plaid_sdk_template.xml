@@ -1,5 +1,0 @@
-<template id="assets_backend" name="st_odoo_statements assets" inherit_id="web.assets_backend">
-    <xpath expr="." position="inside">
-        <script type="text/javascript" src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"/>
-    </xpath>
-</template>

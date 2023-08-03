@@ -7,7 +7,7 @@
     'assets': {
         'web.assets_backend': [
             '/plaid_odoo_statements/static/src/js/plaid_link_wizard.js',
-            '/plaid_odoo_statements/static/src/xml/plaid_sdk.xml',
+            'https://cdn.plaid.com/link/v2/stable/link-initialize.js',
         ],
     },
     'data': [
