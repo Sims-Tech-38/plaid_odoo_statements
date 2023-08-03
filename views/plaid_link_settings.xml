@@ -24,9 +24,8 @@
         <record id="action_plaid_link_settings_form" model="ir.actions.act_window">
             <field name="name">Plaid Link Settings</field>
             <field name="res_model">plaid.link.settings</field>
-            <field name="view_mode">form</field>
+            <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_plaid_link_settings_form"/>
-            <field name="target">new</field>
         </record>
         <menuitem id="menu_plaid_settings" name="Plaid" parent="base.menu_administration"/>
 
