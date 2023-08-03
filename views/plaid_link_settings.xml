@@ -26,7 +26,7 @@
             <field name="res_model">plaid.link.settings</field>
             <field name="view_mode">tree,form</field>
         </record>
-        <menuitem id="menu_plaid_settings" name="Plaid" parent="base.menu_administration"/>
+        <menuitem id="menu_plaid_settings" name="Plaid"/>
 
         <menuitem id="menu_plaid_link_settings" name="Link Settings" parent="menu_plaid_settings" action="action_plaid_link_settings_form"/>
     </data>
