@@ -9,6 +9,9 @@
             '/plaid_odoo_statements/static/src/js/plaid_link_wizard.js',
         ],
     },
+    'qweb': [
+        'static/src/xml/plaid_sdk_template.xml',
+    ],
     'data': [
         'data/plaid_sdk.xml',
         'views/res_users.xml',
