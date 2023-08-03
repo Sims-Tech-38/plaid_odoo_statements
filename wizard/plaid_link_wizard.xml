@@ -27,7 +27,7 @@
     <!-- Plaid Link Wizard Action -->
     <record id="action_plaid_link_wizard" model="ir.actions.act_window">
         <field name="name">Plaid Link Wizard</field>
-        <field name="res_model">st.odoo.statements.plaid.link.wizard</field>
+        <field name="res_model">plaid.link.wizard</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="plaid_link_wizard_form"/>
         <field name="target">new</field>
