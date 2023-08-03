@@ -31,6 +31,15 @@ class PlaidLinkWizard(models.TransientModel):
             'target': 'new',
             'context': self.env.context,
         }
+    def open_plaid_link(self):
+        # Implement your logic to call the Plaid Link client here
+        # For example, you can use the JavaScript code to trigger the client
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'plaid.link.wizard.action',
+            'name': 'Open Plaid Link',
+            'context': self.env.context,
+        }
 
 class PlaidLinkWizardLine(models.TransientModel):
     _name = 'plaid.link.wizard.line'

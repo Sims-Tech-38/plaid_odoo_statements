@@ -4,22 +4,27 @@
             <field name="name">plaid.link.wizard.form</field>
             <field name="model">plaid.link.wizard</field>
             <field name="arch" type="xml">
-                <form string="Plaid Link Wizard">
-                    <group>
-                        <field name="account_lines" widget="one2many_list">
-                            <tree editable="bottom">
-                                <field name="account_name" readonly="1"/>
-                                <field name="account_type" readonly="1"/>
-                                <field name="account_number" readonly="1"/>
-                                <field name="selected"/>
-                            </tree>
-                        </field>
-                    </group>
-                    <footer>
-                        <button string="Save Selected Accounts" type="object" name="save_selected_accounts" class="btn-primary"/>
-                        <button string="Cancel" class="btn-secondary" special="cancel"/>
-                    </footer>
-                </form>
+                <sheet>
+                    <header>
+                        <button string="Open Plaid Link" type="object" name="open_plaid_link" class="btn-primary"/>
+                    </header>
+                    <form string="Plaid Link Wizard">
+                        <group>
+                            <field name="account_lines" widget="one2many_list">
+                                <tree editable="bottom">
+                                    <field name="account_name" readonly="1"/>
+                                    <field name="account_type" readonly="1"/>
+                                    <field name="account_number" readonly="1"/>
+                                    <field name="selected"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <footer>
+                            <button string="Save Selected Accounts" type="object" name="save_selected_accounts" class="btn-primary"/>
+                            <button string="Cancel" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </form>
+                </sheet>    
             </field>
         </record>
     

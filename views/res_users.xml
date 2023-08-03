@@ -16,10 +16,10 @@
                                     <field name="account_number"/>
                                 </tree>
                             </field>
-                            <footer>
+                            <group col="4">
                                 <button string="Link Plaid Account" type="object" name="open_plaid_link_wizard"
                                         class="btn-primary"/>
-                            </footer>
+                            </group>
                         </page>
                     </notebook>
                 </data>
