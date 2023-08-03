@@ -21,8 +21,22 @@ class PlaidController(http.Controller):
             })
 
         # Create the wizard model and add account lines
-        WizardModel = request.env['your.wizard.model']  # Replace 'your.wizard.model' with the actual model name
+        WizardModel = request.env['plaid.link.wizard']  # Replace 'your.wizard.model' with the actual model name
         wizard = WizardModel.create({})  # Create a new wizard record
         wizard.account_lines = [(0, 0, line) for line in account_data]  # Add account lines
 
         return {'success': True}
+
+    @http.route('/plaid/link/settings', type='json', auth='user')
+    def get_plaid_settings(self):
+        # Retrieve Plaid settings from the server
+        SettingsModel = request.env['plaid.link.settings']  # Replace 'plaid.link.settings' with the actual model name
+        settings = SettingsModel.sudo().search([], limit=1)  # Assuming there's only one record
+
+        if settings:
+            return {
+                'plaid_client_id': settings.plaid_client_id,
+                'client_name': settings.client_name,
+            }
+        else:
+            return {'error': 'No Plaid settings found.'}

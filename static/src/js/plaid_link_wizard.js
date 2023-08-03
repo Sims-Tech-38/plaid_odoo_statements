@@ -17,18 +17,34 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
         _onLinkButtonClick: function () {
             console.log('Plaid Link Button clicked!'); // Check if this message appears in the browser console
             var self = this;
-            var linkHandler = Plaid.create({
-                clientName: 'ST Odoo Statements',
-                env: 'sandbox',  // Replace with 'development' or 'production' in the production environment
-                key: 'f0770cca8117e86db1bdf7ce5392f1',
-                product: ['auth', 'transactions'], // or ['auth', 'identity', 'transactions'] for additional data
-                onSuccess: function (publicToken, metadata) {
-                    self._onSuccess(publicToken, metadata);
-                },
-            });
+            rpc.query({
+                model: 'plaid.link.settings',
+                method: 'search_read',
+                args: [[]], // Provide any domain or filter if needed
+                fields: ['plaid_client_id', 'client_name'],
+                limit: 1,
+            }).then(function (result) {
+                if (result && result.length > 0) {
+                    // Assuming we only get one result, use the first record for link initialization
+                    var settings = result[0];
+                    var linkHandler = Plaid.create({
+                        clientName: settings.client_name,
+                        env: 'sandbox',  // Replace with 'development' or 'production' in the production environment
+                        key: settings.plaid_client_id,
+                        product: ['auth', 'transactions'], // or ['auth', 'identity', 'transactions'] for additional data
+                        onSuccess: function (publicToken, metadata) {
+                            self._onSuccess(publicToken, metadata);
+                        },
+                    });
 
-            // Open the Plaid Link interface
-            linkHandler.open();
+                    // Open the Plaid Link interface
+                    linkHandler.open();
+                } else {
+                    self.do_warn('Error', 'No Plaid settings found.');
+                }
+            }).guardedCatch(function (error) {
+                self.do_warn('Error', 'Failed to retrieve Plaid settings.');
+            });
         },
 
         _onSuccess: function (publicToken, metadata) {
