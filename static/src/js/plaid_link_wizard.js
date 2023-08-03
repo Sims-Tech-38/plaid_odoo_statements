@@ -58,7 +58,7 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
         }
     });
 
-    core.action_registry.add('st_odoo_statements.plaid_link_wizard_action', PlaidLinkWizard);
+    core.action_registry.add('plaid.link.wizard.action', PlaidLinkWizard);
 
     return PlaidLinkWizard;
 });
