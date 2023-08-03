@@ -7,11 +7,9 @@
     'assets': {
         'web.assets_backend': [
             '/plaid_odoo_statements/static/src/js/plaid_link_wizard.js',
+            '/plaid_odoo_statements/static/src/xml/plaid_sdk.xml',
         ],
     },
-    'qweb': [
-        'static/src/xml/plaid_sdk_template.xml',
-    ],
     'data': [
         'views/res_users.xml',
         'wizard/plaid_link_wizard.xml',
