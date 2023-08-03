@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <record id="view_plaid_link_settings_form" model="ir.ui.view">
+            <field name="name">plaid.link.settings.form</field>
+            <field name="model">plaid.link.settings</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="create_plaid_link_token" string="Get Plaid Link Token" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <!-- Add other fields for Plaid settings if needed -->
+                        <group>
+                            <field name="plaid_client_id"/>
+                            <field name="plaid_secret"/>
+                            <field name="plaid_link_token" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_plaid_link_settings_form" model="ir.actions.act_window">
+            <field name="name">Plaid Link Settings</field>
+            <field name="res_model">plaid.link.settings</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_plaid_link_settings_form"/>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_plaid_settings" name="Plaid" parent="base.menu_settings"/>
+
+        <menuitem id="menu_plaid_link_settings" name="Link Settings" parent="menu_plaid_settings" action="action_plaid_link_settings_form"/>
+    </data>
+</odoo>
