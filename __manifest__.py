@@ -10,6 +10,9 @@
             'https://cdn.plaid.com/link/v2/stable/link-initialize.js',
         ],
     },
+    'js': [
+        'static/src/js/plaid_sdk.js',
+    ],
     'data': [
         'views/res_users.xml',
         'wizard/plaid_link_wizard.xml',
