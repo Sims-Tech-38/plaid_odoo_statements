@@ -1,5 +1,6 @@
 <odoo>
     <data>
+        <!-- Form View -->
         <record id="view_plaid_link_settings_form" model="ir.ui.view">
             <field name="name">plaid.link.settings.form</field>
             <field name="model">plaid.link.settings</field>
@@ -21,13 +22,30 @@
             </field>
         </record>
 
-        <record id="action_plaid_link_settings_form" model="ir.actions.act_window">
+        <!-- Tree View -->
+        <record id="view_plaid_link_settings_tree" model="ir.ui.view">
+            <field name="name">plaid.link.settings.tree</field>
+            <field name="model">plaid.link.settings</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="plaid_client_id"/>
+                    <!-- Add other fields you want to display in the tree view -->
+                    <field name="client_name"/>
+                    <!-- Add more fields here -->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action to Open Tree View -->
+        <record id="action_plaid_link_settings_list" model="ir.actions.act_window">
             <field name="name">Plaid Link Settings</field>
             <field name="res_model">plaid.link.settings</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form</field>  <!-- Display both tree and form views -->
+            <field name="view_id" ref="view_plaid_link_settings_tree"/>
         </record>
-        <menuitem id="menu_plaid_settings" name="Plaid"/>
 
-        <menuitem id="menu_plaid_link_settings" name="Link Settings" parent="menu_plaid_settings" action="action_plaid_link_settings_form"/>
+        <!-- Menu Items -->
+        <menuitem id="menu_plaid_settings" name="Plaid" parent="base.menu_administration"/>
+        <menuitem id="menu_plaid_link_settings" name="Link Settings" parent="menu_plaid_settings" action="action_plaid_link_settings_list"/>
     </data>
 </odoo>
