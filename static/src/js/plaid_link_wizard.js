@@ -37,7 +37,7 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
                 model: 'plaid.link.settings',
                 method: 'search_read',
                 args: [[]],
-                fields: ['plaid_client_id', 'client_name'],
+                fields: ['plaid_client_id', 'client_name', 'plaid_link_token'],
                 limit: 1,
             }).then(function (result) {
                 console.log('Fetched Plaid settings:', result);
@@ -46,7 +46,7 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
                     var linkHandler = Plaid.create({
                         clientName: settings.client_name,
                         env: 'sandbox',
-                        key: settings.plaid_client_id, // Make sure this value is correctly retrieved
+                        token: settings.plaid_link_token, // Make sure this value is correctly retrieved
                         product: ['auth', 'transactions'],
                         onSuccess: function (publicToken, metadata) {
                             console.log('Plaid Link onSuccess triggered:', publicToken, metadata);
