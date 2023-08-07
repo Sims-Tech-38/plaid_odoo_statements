@@ -31,6 +31,8 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
         initializePlaid: function($contentElement) {
             console.log('Initializing Plaid!'); 
             var self = this;
+            console.log('Fetching Plaid settings from server...');
+            
             rpc.query({
                 model: 'plaid.link.settings',
                 method: 'search_read',
@@ -38,6 +40,7 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
                 fields: ['plaid_client_id', 'client_name'],
                 limit: 1,
             }).then(function (result) {
+                console.log('Fetched Plaid settings:', result);
                 if (result && result.length > 0) {
                     var settings = result[0];
                     var linkHandler = Plaid.create({
@@ -46,18 +49,27 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
                         key: settings.plaid_client_id,
                         product: ['auth', 'transactions'],
                         onSuccess: function (publicToken, metadata) {
+                            console.log('Plaid Link onSuccess triggered:', publicToken, metadata);
                             self._onSuccess(publicToken, metadata);
                         },
                         onLoad: function() {
                             console.log('Plaid Link: Initialized inside iframe');
                         },
+                        onExit: function(err, metadata) {
+                            console.log('Plaid Link onExit triggered:', err, metadata);
+                        },
+                        onError: function(err, metadata) {
+                            console.log('Plaid Link onError triggered:', err, metadata);
+                        }
                     });
 
                     linkHandler.open();
                 } else {
+                    console.log('No Plaid settings found.');
                     self.do_warn('Error', 'No Plaid settings found.');
                 }
             }).guardedCatch(function (error) {
+                console.log('Error retrieving Plaid settings:', error);
                 self.do_warn('Error', 'Failed to retrieve Plaid settings. Error: ' + error.message);
             });
         },
