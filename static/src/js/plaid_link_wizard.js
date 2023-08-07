@@ -51,7 +51,6 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
                         onLoad: function() {
                             console.log('Plaid Link: Initialized inside iframe');
                         },
-                        iframe: true
                     });
 
                     linkHandler.open();
