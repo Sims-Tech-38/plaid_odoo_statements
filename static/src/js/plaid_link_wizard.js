@@ -32,7 +32,7 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
             console.log('Initializing Plaid!'); 
             var self = this;
             console.log('Fetching Plaid settings from server...');
-            
+                    
             rpc.query({
                 model: 'plaid.link.settings',
                 method: 'search_read',
@@ -46,7 +46,7 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
                     var linkHandler = Plaid.create({
                         clientName: settings.client_name,
                         env: 'sandbox',
-                        key: settings.plaid_client_id,
+                        key: settings.plaid_client_id, // Make sure this value is correctly retrieved
                         product: ['auth', 'transactions'],
                         onSuccess: function (publicToken, metadata) {
                             console.log('Plaid Link onSuccess triggered:', publicToken, metadata);
@@ -58,11 +58,8 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
                         onExit: function(err, metadata) {
                             console.log('Plaid Link onExit triggered:', err, metadata);
                         },
-                        onError: function(err, metadata) {
-                            console.log('Plaid Link onError triggered:', err, metadata);
-                        }
                     });
-
+        
                     linkHandler.open();
                 } else {
                     console.log('No Plaid settings found.');
