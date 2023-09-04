@@ -16,8 +16,8 @@ class ResUsers(models.Model):
         return wizard.open_wizard()
 
     def update_plaid_info(self, public_token, metadata):
-        _logger.debug(f"Type of plaid module: {type(plaid)}")
-        _logger.debug(f"Attributes of plaid module: {dir(plaid)}")
+        _logger.info(f"Type of plaid module: {type(plaid)}")
+        _logger.info(f"Attributes of plaid module: {dir(plaid)}")
         accounts = metadata.get('accounts', [])
         _logger.info('Accounts: %s', accounts)
         account_names = self.create_plaid_accounts(accounts)
