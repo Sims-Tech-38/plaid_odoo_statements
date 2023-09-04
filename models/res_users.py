@@ -54,7 +54,7 @@ class ResUsers(models.Model):
                 'user_id': self.id,
                 'name': acc['name'],
                 'type': acc['subtype'],  # Assuming that 'subtype' exists
-                'number': acc['account_id'],  # Assuming that 'account_id' exists
+                'number': acc['id'],  # Assuming that 'account_id' exists
             })
             created_account_names.append(created_account.name)
         return created_account_names
