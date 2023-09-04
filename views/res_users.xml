@@ -11,9 +11,9 @@
                         <page string="Plaid Link" name="plaid_link_page">
                             <field name="plaid_accounts" widget="one2many_list">
                                 <tree>
-                                    <field name="account_name"/>
-                                    <field name="account_type"/>
-                                    <field name="account_number"/>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="number"/>
                                 </tree>
                             </field>
                             <group col="4">
