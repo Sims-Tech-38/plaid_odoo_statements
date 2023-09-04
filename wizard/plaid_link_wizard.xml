@@ -4,6 +4,7 @@
             <field name="name">plaid.link.wizard.form</field>
             <field name="model">plaid.link.wizard</field>
             <field name="arch" type="xml">
+                <form>
                 <sheet>
                     <header>
                         <button string="Open Plaid Link" type="object" name="open_plaid_link" class="btn-primary"/>
@@ -24,7 +25,8 @@
                             <button string="Cancel" class="btn-secondary" special="cancel"/>
                         </footer>
                     </form>
-                </sheet>    
+                </sheet>
+                </form>    
             </field>
         </record>
     
