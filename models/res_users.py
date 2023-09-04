@@ -8,7 +8,6 @@ class ResUsers(models.Model):
     plaid_access_token = fields.Char(string='Plaid Access Token', password=True, readonly=True)
     plaid_accounts = fields.One2many('st_odoo_statements.plaid_account', 'user_id', string='Plaid Accounts')
     plaid_settings_id = fields.Many2one('plaid.link.settings', string='Plaid Settings')
-    plaid_account_key_ids = fields.One2many('st_odoo_statements.plaid_account_key', 'user_id', string='Plaid Account Keys')
 
     def open_plaid_link_wizard(self):
         wizard = self.env['plaid.link.wizard'].create({})
