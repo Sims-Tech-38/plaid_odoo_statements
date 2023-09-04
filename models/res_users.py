@@ -16,6 +16,8 @@ class ResUsers(models.Model):
         return wizard.open_wizard()
 
     def update_plaid_info(self, public_token, metadata):
+        _logger.debug(f"Type of plaid module: {type(plaid)}")
+        _logger.debug(f"Attributes of plaid module: {dir(plaid)}")
         accounts = metadata.get('accounts', [])
         _logger.info('Accounts: %s', accounts)
         account_names = self.create_plaid_accounts(accounts)
@@ -35,7 +37,7 @@ class ResUsers(models.Model):
 
             # Initialize Plaid client
         configuration = plaid.Configuration(
-            host=plaid.Environment[environment],  # Assuming environment is 'Sandbox', 'Development' or 'Production'
+            host=plaid.Environment[environment],
             api_key={
                 'clientId': client_id,
                 'secret': secret,
