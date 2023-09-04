@@ -72,8 +72,18 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
         },
 
         _onSuccess: function (publicToken, metadata) {
-            // Rest of your code for handling success...
-        }
+            console.log('Plaid Link onSuccess triggered:', publicToken, metadata);
+            rpc.query({
+                model: 'res.users',
+                method: 'update_plaid_info',
+                args: [[this.getSession().uid], publicToken, metadata],
+            }).then(function (result) {
+                // Handle result here. e.g., update UI or show success message
+            }).guardedCatch(function (error) {
+                console.log('Error in handling Plaid onSuccess:', error);
+                self.do_warn('Error', 'Failed to process Plaid success. Error: ' + error.message);
+            });
+        },
     });
 
     core.action_registry.add('plaid.link.wizard.action', PlaidLinkWizard);

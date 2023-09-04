@@ -10,6 +10,7 @@ class PlaidLinkSettings(models.Model):
     plaid_secret = fields.Char(string='Plaid Secret', required=True)
     plaid_link_token = fields.Char(string='Plaid Link Token')
     client_name = fields.Char(string='Client Name', default='Your Client Name')
+    plaid_environment = fields.Char(string='Plaid Environment', default='sandbox')
 
     def create_plaid_link_token(self):
         # Set your Plaid credentials here

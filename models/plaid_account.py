@@ -7,6 +7,7 @@ class PlaidAccount(models.Model):
     _description = 'Plaid Account'
 
     user_id = fields.Many2one('res.users', string='User', ondelete='cascade')
-    account_name = fields.Char(string='Account Name')
-    account_type = fields.Char(string='Account Type')
-    account_number = fields.Char(string='Account Number')
+    name = fields.Char(string='Account Name')
+    type = fields.Char(string='Account Type')
+    number = fields.Char(string='Account Number')
+    access_key = fields.Char(string='Access Key')
