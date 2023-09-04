@@ -1,5 +1,6 @@
 from odoo import fields, models
-from plaid import Client
+import plaid
+from plaid.api import plaid_api
 
 class ResUsers(models.Model):
     _inherit = 'res.users'
@@ -14,7 +15,7 @@ class ResUsers(models.Model):
         return wizard.open_wizard()
 
     def update_plaid_info(self, public_token, metadata):
-        accounts = metadata('accounts', [])
+        accounts = metadata.get('accounts', [])
         account_names = self.create_plaid_accounts(accounts)
         access_token = self.get_access_key(public_token)
 
@@ -30,7 +31,17 @@ class ResUsers(models.Model):
         secret = self.plaid_settings_id.plaid_secret
         environment = self.plaid_settings_id.plaid_environment
 
-        client = Client(client_id=client_id, secret=secret, environment=environment)
+            # Initialize Plaid client
+        configuration = plaid.Configuration(
+            host=plaid.Environment[environment],  # Assuming environment is 'Sandbox', 'Development' or 'Production'
+            api_key={
+                'clientId': client_id,
+                'secret': secret,
+            }
+        )
+
+        api_client = plaid.ApiClient(configuration)
+        client = plaid_api.PlaidApi(api_client)
         exchange_response = client.Item.public_token.exchange(public_token)
         return exchange_response['access_token']
 
