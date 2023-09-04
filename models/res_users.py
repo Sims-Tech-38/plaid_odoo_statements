@@ -1,6 +1,8 @@
 from odoo import fields, models
 import plaid
 from plaid.api import plaid_api
+import logging
+_logger = logging.getLogger(__name__)
 
 class ResUsers(models.Model):
     _inherit = 'res.users'
@@ -15,6 +17,7 @@ class ResUsers(models.Model):
 
     def update_plaid_info(self, public_token, metadata):
         accounts = metadata.get('accounts', [])
+        _logger.info('Accounts: %s', accounts)
         account_names = self.create_plaid_accounts(accounts)
         access_token = self.get_access_key(public_token)
 

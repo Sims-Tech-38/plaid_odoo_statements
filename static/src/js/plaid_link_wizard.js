@@ -81,7 +81,6 @@ odoo.define('st_odoo_statements.plaid_link_wizard', function (require) {
                 // Handle result here. e.g., update UI or show success message
             }).guardedCatch(function (error) {
                 console.log('Error in handling Plaid onSuccess:', error);
-                self.do_warn('Error', 'Failed to process Plaid success. Error: ' + error.message);
             });
         },
     });
