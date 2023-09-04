@@ -37,7 +37,7 @@ class ResUsers(models.Model):
 
             # Initialize Plaid client
         configuration = plaid.configuration(
-            host=plaid.Environment[environment],
+            host=plaid.environment[environment],
             api_key={
                 'clientId': client_id,
                 'secret': secret,
