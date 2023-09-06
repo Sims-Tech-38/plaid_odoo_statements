@@ -17,8 +17,7 @@
                                 </tree>
                             </field>
                             <group col="4">
-                                <button string="Link Plaid Account" type="object" name="open_plaid_link_wizard"
-                                        class="btn-primary"/>
+                                <button string="Open Plaid Link" type="object" name="open_plaid_link" class="btn-primary"/>
                             </group>
                         </page>
                     </notebook>

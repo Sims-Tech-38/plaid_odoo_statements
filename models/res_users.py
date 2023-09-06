@@ -60,3 +60,13 @@ class ResUsers(models.Model):
             })
             created_account_names.append(created_account.name)
         return created_account_names
+    
+    def open_plaid_link(self):
+        # Implement your logic to call the Plaid Link client here
+        # For example, you can use the JavaScript code to trigger the client
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'plaid.link.wizard.action',
+            'name': 'Open Plaid Link',
+            'context': self.env.context,
+        }

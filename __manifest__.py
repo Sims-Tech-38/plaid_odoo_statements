@@ -16,7 +16,7 @@
     'data': [
         'views/plaid_link_settings.xml',
         'views/res_users.xml',
-        'wizard/plaid_link_wizard.xml',
+        # 'wizard/plaid_link_wizard.xml',
         # 'views/base_view.xml',
         # 'security/ir.model.access.csv',
     ],
